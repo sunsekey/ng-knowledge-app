@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="css/index.css"/>
     <script id="tree_item.html" type="text/ng-template">
-        <span class="nodeName" ng-click="nodeAction($event)">{{node.name}}</span>
+        <span  ng-show="isNew == false && isEdit == false" class="nodeName" ng-click="nodeAction($event)">{{node.name}}</span>
+        <input ng-show="isNew == true || isEdit == true" style="width:60%" class="editedNode" ng-blur="saveOrUpdateNode()" ng-model="node.name" />
+        <a href="" ng-click="editNode()"><i>(edit)</i></a>
         <ul>
             <li class="hide" ng-repeat="node in node.nodes">
                 <menu-item></menu-item>
@@ -28,7 +30,7 @@
             <div class="left_container">
                 <div class="menu" ng-controller="menuCtr">
                     <ul>
-                        <div class="menu_opr"><a href="" ng-click="addNode($event,0)">Add</a></div>
+                        <div class="menu_opr"><a href="" ng-click="addNode(0)">Add</a></div>
                         <li ng-repeat="node in nodes">
                             <menu-item></menu-item>
                         </li>
@@ -44,6 +46,7 @@
 </div>
 <script type="text/javascript" src="framework/angular.js"></script>
 <script type="text/javascript" src="framework/angular-ui-router.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/controllers.js"></script>
 <script type="text/javascript" src="js/services.js"></script>

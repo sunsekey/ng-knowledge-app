@@ -2,39 +2,47 @@
   {
     "id": 0,
     "name": "root",
-    "nodes": [{
-      "id": 1,
-      "name": "CSS学习",
-      "nodes": [
-        {
-          "id": 2,
-          "name": "CSS-layout",
-          "nodes": [
-            {
-              "id": 3,
-              "name": "float",
-              "nodes": []
-            },
-            {
-              "id": 4,
-              "name": "margin",
-              "nodes": []
-            }
-          ]
-        }
-      ]
-    },
+    "pId": -1,
+    "nodes": [
       {
-        "id":5,
+        "id": 1,
+        "pId": 0,
+        "name": "CSS学习",
+        "nodes": [
+          {
+            "id": 2,
+            "pId": 1,
+            "name": "CSS-layout",
+            "nodes": [
+              {
+                "id": 3,
+                "pId": 2,
+                "name": "float",
+                "nodes": []
+              },
+              {
+                "id": 4,
+                "pId": 2,
+                "name": "margin",
+                "nodes": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "pId": 0,
         "name": "javascript",
         "nodes": [
           {
             "id": 6,
+            "pId": 5,
             "name": "JS-object",
             "nodes": []
           }
         ]
-
-      }]
+      }
+    ]
   }
 ]

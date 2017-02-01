@@ -21,42 +21,15 @@ knowledgeApp.controller("menuCtr", ["$scope","menuService",function ($scope,menu
             }
         );
     }
-    $scope.addNode = function($event,pId){
-        var newNode = {
-            "id":-1,
-            "name":"",
-            "nodes":[]
-        };
+    $scope.addNode = function(pId){
+        var newNode = new Node(-1, pId, '',[]);
         menuService.addNode($scope.allNodes,newNode,pId);
     }
 }]);
 
-function addClass(target, clsName) {
-    if (isExistCls(target, clsName)) {
-        return;
-    }
-    var clsArr = target.getAttribute("class").split(" ");
-    clsArr.push(clsName);
-    target.setAttribute("class", clsArr.join(" "));
-}
-function removeClass(target, clsName) {
-    if (!isExistCls(target, clsName)) {
-        return;
-    }
-    var clsArr = target.getAttribute("class").split(" ");
-    clsArr = clsArr.filter(function (cls) {
-        return (cls !== clsName);
-    });
-    target.setAttribute("class", clsArr.join(" "));
-}
-function isExistCls(target, clsName) {
-    var clsArr = target.getAttribute("class").split(" ");
-    var res = false;
-    clsArr.forEach(function (cls, index, arr) {
-        if (cls === clsName) {
-            res = true;
-            return false;
-        }
-    });
-    return res;
-}
+function Node(id, pId, name, nodes) {
+    this.id = id;
+    this.pId = pId;
+    this.name = name;
+    this.nodes = nodes;
+};
