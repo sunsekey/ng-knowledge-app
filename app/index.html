@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="css/index.css"/>
     <script id="tree_item.html" type="text/ng-template">
-        <span  ng-show="isNew == false && isEdit == false" class="nodeName" ng-click="nodeAction($event)">{{node.name}}</span>
-        <input ng-show="isNew == true || isEdit == true" style="width:60%" class="editedNode" ng-blur="saveOrUpdateNode()" ng-model="node.name" />
-        <a href="" ng-click="editNode()"><i>(edit)</i></a>
-        <ul>
-            <li class="hide" ng-repeat="node in node.nodes">
-                <menu-item></menu-item>
-            </li>
-        </ul>
+        <div>
+            <span ng-show="isNew == false && isEdit == false" class="nodeName" ng-click="nodeAction()">{{node.name}}</span>
+            <input ng-show="isNew == true || isEdit == true" style="width:60%" class="editedNode"
+                   ng-blur="saveOrUpdateNode($event)" ng-model="node.name"/>
+            <a href="" ng-click="addSubNode()"><i>(+)</i></a>
+            <a href="" ng-click="editNode()"><i>(/e/)</i></a>
+            <ul ng-show="isExpand == true">
+                <li ng-repeat="node in node.nodes" ie="{{isExpand}}">
+                    <menu-item></menu-item>
+                </li>
+            </ul>
+        </div>
     </script>
 </head>
 <body>

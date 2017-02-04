@@ -29,6 +29,5 @@ knowledgeApp.factory("menuService", function ($http) {
         addNode:function(nodes,newNode,pId){
             return doAddNode(nodes,newNode,pId);
         }
-
     }
 });
