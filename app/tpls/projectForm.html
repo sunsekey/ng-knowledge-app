@@ -1,0 +1,51 @@
+<div class="formArea">
+    <!--可利用ng-model-options来设置更新的时机(updateOn) -->
+    <form name="form" novalidate class="form"
+          ng-model-options="{updateOn:'default blur',debounce:{default:0,blur:0 } }">
+        <div class="formItem">
+            <label>project name:</label><input type="text" value="" name="name"
+                                               ng-model="project.name"
+                                               placeholder="enter please..."
+                                               required/>
+            <span ng-show="form.$submitted || form.name.$touched">
+                            <span ng-show="form.name.$error.required"><msg-err>Tell us your name</msg-err></span>
+                        </span>
+        </div>
+        <div class="formItem">
+            <label>description:</label><textarea style="vertical-align: top" name="description" rows="5"
+                                                 ng-model="project.description"
+                                                 placeholder="describe your project here..."
+                                                 required></textarea>
+            <span ng-show="form.$submitted || form.description.$touched">
+                            <span ng-show="form.description.$error.required"><msg-err>Tell describe your project</msg-err></span>
+                        </span>
+        </div>
+        <div class="formItem">
+            <label>
+                participator(required 1～10):</label><input type="number" min="1" max="10"
+                                                           name="participator_count"
+                                                           ng-model="project.participator_count" integer/>
+
+            <span ng-show="form.participator_count.$error.integer"><msg-err>required integer!</msg-err></span>
+            <span ng-show="form.participator_count.$error.min || form.participator_count.$error.max"><msg-err>required 1～10</msg-err></span>
+        </div>
+        <div class="formItem">
+            <label>is private:</label><input id="positive" type="radio" value="1" name="isPrivate"
+                                             ng-model="project.isPrivate"/><label for="positive">yes</label>
+            <input type="radio" value="0" id="negative" name="isPrivate" ng-model="project.isPrivate"/><label
+                for="negative">no</label>
+        </div>
+        <div class="formItem" ng-show="isPrivate">
+            <label>password:</label><input  type="password" placeholder="" ng-model="project.password"/>
+        </div>
+        <div class="formItem">
+            <div class="preview">
+                {{project || json}}
+            </div>
+        </div>
+
+        <button ng-click="save(project)">saveUser</button>
+        <button ng-click="printProject(project)">printUser</button>
+        <button ng-click="reset()">reset</button>
+    </form>
+</div>

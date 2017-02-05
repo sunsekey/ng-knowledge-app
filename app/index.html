@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="knowledgeApp">
+<head>
+    <meta charset="UTF-8">
+    <title>knowledge-app</title>
+    <!--css-->
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script id="tree_item.html" type="text/ng-template">
+        <span class="nodeName" ng-click="nodeAction($event)">{{node.name}}</span>
+        <ul>
+            <li class="hide" ng-repeat="node in node.nodes">
+                <menu-item></menu-item>
+            </li>
+        </ul>
+    </script>
+</head>
+<body>
+<div>
+    <div class="wrapper">
+        <div class="header">
+            <div class="header_title_wrapper">
+                <div class="header_title">KNOWLEDGE-APP</div>
+            </div>
+            <div class="header_others">OTHERS(USERINFO,SETTINGS)</div>
+        </div>
+        <div class="container">
+            <div class="left_container">
+                <div class="menu" ng-controller="menuCtr">
+                    <ul>
+                        <div class="menu_opr"><a href="" ng-click="addNode($event,0)">Add</a></div>
+                        <li ng-repeat="node in nodes">
+                            <menu-item></menu-item>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main_container"></div>
+        </div>
+        <div class="footer">
+            <div class="footer_info">@sunsekey</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="framework/angular.js"></script>
+<script type="text/javascript" src="framework/angular-ui-router.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
+<script type="text/javascript" src="js/services.js"></script>
+</html>
