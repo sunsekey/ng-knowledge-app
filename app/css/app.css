@@ -2,9 +2,9 @@
     padding: 0;
     margin: 0;
     border:0;
-    font-family: "Arial", ΢���ź�;
+    font-family: "Arial";
     font-size: 100%;
-    /*vertical-align: baseline;*/
+    vertical-align: baseline;
 }
 body{
     text-align: center;

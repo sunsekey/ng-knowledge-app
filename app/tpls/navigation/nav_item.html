@@ -1,0 +1,13 @@
+<li>
+    <!--节点名-->
+    <span ng-show="isNew == false && isEdit == false" class="nodeName" ng-click="expand()">{{node.name}}</span>
+    <input ng-show="isNew == true || isEdit == true" style="width:60%" class="editedNode"
+           ng-blur="saveOrUpdateNode($event)" ng-model="node.name"/>
+    <!--节点操作-->
+    <a href="" ng-click="addSubNode()"><i>(+)</i></a>
+    <a href="" ng-click="editNode()"><i>(/e/)</i></a>
+    <!--子节点-->
+    <ul ng-show="isExpand == true">
+        <nav-item ng-repeat="node in node.nodes" ng-include="'tpls/navigation/nav_item.html'">{{node.name}}</nav-item>
+    </ul>
+</li>

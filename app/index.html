@@ -6,20 +6,7 @@
     <!--css-->
     <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="css/index.css"/>
-    <script id="tree_item.html" type="text/ng-template">
-        <div>
-            <span ng-show="isNew == false && isEdit == false" class="nodeName" ng-click="nodeAction()">{{node.name}}</span>
-            <input ng-show="isNew == true || isEdit == true" style="width:60%" class="editedNode"
-                   ng-blur="saveOrUpdateNode($event)" ng-model="node.name"/>
-            <a href="" ng-click="addSubNode()"><i>(+)</i></a>
-            <a href="" ng-click="editNode()"><i>(/e/)</i></a>
-            <ul ng-show="isExpand == true">
-                <li ng-repeat="node in node.nodes" ie="{{isExpand}}">
-                    <menu-item></menu-item>
-                </li>
-            </ul>
-        </div>
-    </script>
+    <link rel="stylesheet" href="css/scroll/img_scroll.css">
 </head>
 <body>
 <div>
@@ -31,27 +18,38 @@
             <div class="header_others">OTHERS(USERINFO,SETTINGS)</div>
         </div>
         <div class="container">
-            <div class="left_container">
-                <div class="menu" ng-controller="menuCtr">
+            <div class="top_container">
+                <div ng-controller="ScrollCtrl as scrollCtrl">
+                    <img-scroll scroll-obj='scrollCtrl.scrollObj'></img-scroll>
+                </div>
+            </div>
+            <!--<div class="left_container">
+                <div class="menu" ng-controller="NavCtrl as navCtrl">
+                    <div class="menu_opr"><a href="" ng-click="navCtrl.addTopNode(0)">Add</a></div>
                     <ul>
-                        <div class="menu_opr"><a href="" ng-click="addNode(0)">Add</a></div>
-                        <li ng-repeat="node in nodes">
-                            <menu-item></menu-item>
-                        </li>
+                        <nav-item ng-repeat="node in navCtrl.nodes" ng-include="'tpls/navigation/nav_item.html'"></nav-item>
                     </ul>
                 </div>
             </div>
-            <div class="main_container"></div>
+            <div class="main_container">
+            </div>-->
         </div>
-        <div class="footer">
+        <!--<div class="footer">
             <div class="footer_info">@sunsekey</div>
-        </div>
+        </div>-->
     </div>
 </div>
+</body>
 <script type="text/javascript" src="framework/angular.js"></script>
 <script type="text/javascript" src="framework/angular-ui-router.js"></script>
-<script type="text/javascript" src="js/utils.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/controllers.js"></script>
-<script type="text/javascript" src="js/services.js"></script>
+<script type="text/javascript" src="global_var/scroll/scroll-global.js"></script>
+<script type="text/javascript" src="utils/utils.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controller/navigation/navigation-controller.js"></script>
+<script type="text/javascript" src="controller/scroll/scroll-controller.js"></script>
+<script type="text/javascript" src="component/common/remote-services.js"></script>
+<script type="text/javascript" src="component/navigation/navigation-services.js"></script>
+<script type="text/javascript" src="component/navigation/navigation-directive.js"></script>
+<script type="text/javascript" src="component/scroll/imgScroll-directive.js"></script>
+<script type="text/javascript" src="component/scroll/imgElement-directive.js"></script>
 </html>
