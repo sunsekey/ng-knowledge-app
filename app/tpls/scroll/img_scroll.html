@@ -3,7 +3,7 @@
         <div class="scroll_btn">《《</div>
     </div>
     <ul>
-        <li ng-style="transOffsetStyle" ng-repeat="img in scrollObj.imgGroup" img-src={{img.src}} img-id={{img.id}} scroll-obj="scrollObj" img-element></li>
+        <li ng-style="transOffsetStyle" ng-repeat="img in scrollObj.imgGroup track by $index" img-src={{img.src}} img-id={{img.id}} scroll-obj="scrollObj" img-element></li>
     </ul>
     <div class="scroll right_scroll" ng-click="activeScroll(DIRECTION_RIGHT)">
         <div class="scroll_btn">》》</div>

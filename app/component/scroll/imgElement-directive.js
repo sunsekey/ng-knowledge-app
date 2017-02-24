@@ -36,7 +36,7 @@ knowledgeApp.directive("imgElement", [function () {
                     var outsideElement = scope.scrollObj.imgGroup.filter(function (data,index,arr) {
                         return data.id == scope.imgId;
                     })[0];
-                    scope.scrollObj.imgGroup.unshift(outsideElement);
+                    // scope.scrollObj.imgGroup.unshift(outsideElement);
                 }
             };
             /*scope.$watch("offsetFromRight", function (newVal, oldVal, scope) {
