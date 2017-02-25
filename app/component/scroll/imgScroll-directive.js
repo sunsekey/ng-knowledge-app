@@ -8,41 +8,26 @@ knowledgeApp.directive("imgScroll", ["$timeout", function ($timeout) {
         scope: {scrollObj: "="},
         controller:function($scope,$element){
             return {
-                getImgScrollWidth:function(){
+                getImgScrollWidth: function () {
                     return angular.element($element[0].firstChild)[0].clientWidth;
 
+                },
+                setImgScrollOffsetStyle: function (transOffsetStyle) {
+                    $scope.transOffsetStyle = transOffsetStyle;
                 }
-            }
+            };
         },
         link: function (scope, elm, attr, ctrl) {
             scope.DIRECTION_LEFT = SCROLL_DIRE_LEFT;
             scope.DIRECTION_RIGHT = SCROLL_DIRE_RIGHT;
-            scope.offSetValue = 0;
-            scope.transOffsetStyle = {
-                'transition-delay': '50ms',
-                'transition-property': 'left',
-                'transition-duration': '800ms',
-                'left':'0%'
-            };
 
-            scope.doScroll = function (direction) {
-                //update the imgElem offset
-                if (direction === SCROLL_DIRE_RIGHT) {
-                    scope.offSetValue = scope.offSetValue + 20;
-                } else if (direction === SCROLL_DIRE_LEFT) {
-                    scope.offSetValue = scope.offSetValue - 20;
-                }
-                scope.transOffsetStyle['left'] = (scope.offSetValue) + '%';
-                $timeout(function () {
-                    var imgElementMapping = scope.scrollObj.imgElementMapping;
-                    imgElementMapping.forEach(function (map,index,arr) {
-                        var imgElem = map.elem[0];
-                        map.scope.offsetToRight = imgElem.offsetLeft + imgElem.offsetWidth;
-                    });
-                },1000);
-
-            };
-
+            scope.activeScroll = function(direction){
+                var imgElementMapping = scope.scrollObj.imgElementMapping;
+                imgElementMapping.forEach(function (data,index,arr) {
+                    var scope = data['scope'];
+                    scope.doScroll(direction);
+                });
+            }
         }
     }
 
