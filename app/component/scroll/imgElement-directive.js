@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/2/24.
  */
-knowledgeApp.directive("imgElement", [function () {
+knowledgeApp.directive("imgElement", ["$timeout",function ($timeout) {
     return {
         restrict: "A",
         template: '<img ng-src={{imgSrc}}/>',
@@ -36,7 +36,11 @@ knowledgeApp.directive("imgElement", [function () {
                     var outsideElement = scope.scrollObj.imgGroup.filter(function (data,index,arr) {
                         return data.id == scope.imgId;
                     })[0];
-                    // scope.scrollObj.imgGroup.unshift(outsideElement);
+                    $timeout(function () {
+                        scope.scrollObj.imgGroup.unshift(outsideElement);
+
+                    }, 500);
+
                 }
             };
             /*scope.$watch("offsetFromRight", function (newVal, oldVal, scope) {
