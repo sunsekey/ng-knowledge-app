@@ -13,16 +13,16 @@ knowledgeApp.directive("imgElement", ["$timeout",function ($timeout) {
             var mappingObject = {};
             mappingObject['scope'] = scope;
             mappingObject['elem'] = elem;
-            scope.scrollObj.imgElementMapping.push(mappingObject);
-            scope.offSetValue = 0;//li相对位置值
-            var transOffsetStyle = {
-                'transition-delay': '20ms',
+            //scope.scrollObj.imgElementMapping.push(mappingObject);
+            //scope.offSetValue = 0;//li相对位置值
+            /*var transOffsetStyle = {
+                'transition-delay': '0ms',
                 'transition-property': 'left',
-                'transition-duration': '700ms',
+                'transition-duration': '500ms',
                 'left':DEFALUT_OFFSET_VALUE + 'px'
-            };
-            ctrl.setImgScrollOffsetStyle(transOffsetStyle);
-            scope.doScroll = function (direction) {
+            };*/
+            //ctrl.setImgScrollOffsetStyle(transOffsetStyle);
+            /*scope.doScroll = function (direction) {
                 //update the imgElem offset
                 if (direction === SCROLL_DIRE_RIGHT) {
                     scope.offSetValue = scope.offSetValue + OFFSET_VALUE;
@@ -38,17 +38,9 @@ knowledgeApp.directive("imgElement", ["$timeout",function ($timeout) {
                     })[0];
                     $timeout(function () {
                         scope.scrollObj.imgGroup.unshift(outsideElement);
-
-                    }, 500);
-
+                    }, 200);
                 }
-            };
-            /*scope.$watch("offsetFromRight", function (newVal, oldVal, scope) {
-                if (newVal >= ctrl.getImgScrollWidth()) {
-                    console.log(arguments);
-                }
-            }, true);*/
-
+            };*/
         }
 
     }

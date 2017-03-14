@@ -2,6 +2,7 @@
 .scroll_container{
     overflow: hidden;
     height:90px;
+    width: 520px;
     background-color: #78859e;
     /*border:1px solid black;*/
 }
@@ -12,7 +13,7 @@
 .scroll_container ul {
     list-style: none;
     float: left;
-    width: 90%;
+    width: 480px;
     height: inherit;
     position:relative;
     z-index: 1;
@@ -21,14 +22,14 @@
     display: inline;
     position: relative;
     height: inherit;
-    margin-right: 14px;
+    /*margin-right: 14px;*/
 }
 .scroll_container ul li:first-child {
-    margin-left: 30px;
+    /*margin-left: 30px;*/
 }
 .scroll_container .scroll {
     height: inherit;
-    width: 5%;
+    width: 20px;
     background: cornflowerblue;
     position:relative;
     z-index: 2;
